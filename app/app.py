@@ -78,6 +78,9 @@ class _FileHandler(FileSystemEventHandler):
     def __init__(self, service: ProcessingService):
         self._service = service
 
+    #копирование файла в директорию input в контейнере
+    # не распознается как on_created,
+    # хотя при обычном запуске это работает, поэтому добавили on_any_event
     # def on_created(self, event):
     #   if not event.is_directory and event.src_path.endswith(".csv"):
     #      logger.debug('New file detected: %s', event.src_path)
